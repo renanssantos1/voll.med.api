@@ -18,13 +18,10 @@ public record DadosEndereco(
         String cidade,
 
         @NotBlank
-        @Pattern(regexp = "^[A-Z]{2}$")
         String uf,
 
         String complemento,
 
-        @NotBlank
-        @Pattern(regexp = "\\d{2}")
         String numero
 ) {
 
