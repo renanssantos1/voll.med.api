@@ -25,6 +25,9 @@ public record DadosCadastroMedico(
 
         @NotNull
         @Valid
-        DadosEndereco endereco
+        DadosEndereco endereco,
+
+        @NotBlank
+        String telefone
 ) {
 }
