@@ -42,4 +42,18 @@ public class Paciente {
     public void deletarPaciente() {
         this.ativo = false;
     }
+
+    public void atualizarDadosCadastrais(DadosAtualizacaoPaciente dadosPaciente) {
+        if (dadosPaciente.nome() != null){
+            this.nome = dadosPaciente.nome();
+        }
+
+        if (dadosPaciente.telefone() != null){
+            this.telefone = dadosPaciente.telefone();
+        }
+
+        if(dadosPaciente.endereco() != null){
+            this.endereco.atualizarInformacoes(dadosPaciente.endereco());
+        }
+    }
 }
