@@ -15,7 +15,7 @@ public class TokenService {
 
     public String gerarToken(Usuario usuario) {
         try {
-            Algorithm algorithm = Algorithm.HMAC256("API.VOL.MED");
+            Algorithm algorithm = Algorithm.HMAC256("apivolmed");
             return JWT.create()
                     .withIssuer("auth0")
                     .withSubject(usuario.getLogin())
