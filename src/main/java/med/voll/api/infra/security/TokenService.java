@@ -13,6 +13,22 @@ import java.time.ZoneOffset;
 @Service
 public class TokenService {
 
+    public String gerarToken(Usuario usuario) {
+        try {
+            Algorithm algorithm = Algorithm.HMAC256("API.VOL.MED");
+            return JWT.create()
+                    .withIssuer("auth0")
+                    .withSubject(usuario.getLogin())
+                    .withExpiresAt(dataExpiracao())
+                    .sign(algorithm);
 
+        } catch (JWTCreationException exception){
+            throw new RuntimeException("Ocorreu um erro ao gerar o token JWT" + exception);
+        }
+    }
+
+    private Instant dataExpiracao() {
+        return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
+    }
 
 }
