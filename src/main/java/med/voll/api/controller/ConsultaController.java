@@ -15,12 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("consultas")
 public class ConsultaController {
 
-
     @PostMapping
     @Transactional
     public ResponseEntity agendarConsulta(@RequestBody @Valid DadosAgendamentoConsulta dadosAgendamento) {
-        System.out.println(dadosAgendamento);
-
         return ResponseEntity.ok(new DadosDetalhamentoConsulta(null, null, null, null));
     }
 
