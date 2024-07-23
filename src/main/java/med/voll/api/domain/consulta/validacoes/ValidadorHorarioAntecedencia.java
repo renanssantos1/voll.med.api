@@ -6,7 +6,7 @@ import med.voll.api.infra.exception.ValidacaoException;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class ValidadorHorarioAntecedencia {
+public class ValidadorHorarioAntecedencia implements ValidadorAgendamentoConsulta {
 
     public void validar(DadosAgendamentoConsulta dados) {
         var dadaConsulta = dados.data();

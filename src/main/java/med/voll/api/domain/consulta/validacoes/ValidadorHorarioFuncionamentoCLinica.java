@@ -6,7 +6,7 @@ import med.voll.api.infra.exception.ValidacaoException;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
-public class ValidadorHorarioFuncionamentoCLinica {
+public class ValidadorHorarioFuncionamentoCLinica implements ValidadorAgendamentoConsulta{
 
     public void validar(DadosAgendamentoConsulta dados) {
         LocalDateTime dadosConsulta = dados.data();

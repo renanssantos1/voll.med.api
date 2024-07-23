@@ -6,7 +6,7 @@ import med.voll.api.infra.exception.ValidacaoException;
 
 import java.util.Objects;
 
-public class ValidadorMedicoAtivo {
+public class ValidadorMedicoAtivo implements ValidadorAgendamentoConsulta{
 
     private MedicoRepository repository;
 

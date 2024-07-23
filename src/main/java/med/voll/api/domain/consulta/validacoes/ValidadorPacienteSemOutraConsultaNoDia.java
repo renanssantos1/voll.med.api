@@ -6,7 +6,7 @@ import med.voll.api.infra.exception.ValidacaoException;
 
 import java.time.LocalDateTime;
 
-public class ValidadorPacienteSemOutraConsultaNoDia {
+public class ValidadorPacienteSemOutraConsultaNoDia implements ValidadorAgendamentoConsulta{
 
     private ConsultaRepository repository;
 
