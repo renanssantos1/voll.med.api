@@ -22,11 +22,14 @@ public class TratamentoDeErros {
         return ResponseEntity.badRequest().body(errors.stream().map(DadosUsuarioValidacao::new).toList());
     }
 
-    private record DadosUsuarioValidacao(String field, String message){
+    @ExceptionHandler(ValidacaoException.class)
+    public ResponseEntity tratarErroRegraDeNegocio(ValidacaoException exception){
+        return ResponseEntity.badRequest().body(exception.getMessage());
+    }
 
+    private record DadosUsuarioValidacao(String field, String message){
         public DadosUsuarioValidacao(FieldError error){
             this(error.getField(), error.getDefaultMessage());
         }
-
     }
 }
