@@ -9,7 +9,7 @@ public class ValidadorMedicoComOutraConsultaNoMesmoHorario {
     private ConsultaRepository repository;
 
     public void validar(DadosAgendamentoConsulta dados){
-        Boolean medicoPossuiOutraConsultaNoMesmoHorario = repository.existsByMedicoIdAndData(dados.idMedico(), dados.data());
+        boolean medicoPossuiOutraConsultaNoMesmoHorario = repository.existsByMedicoIdAndData(dados.idMedico(), dados.data());
         if(medicoPossuiOutraConsultaNoMesmoHorario){
             throw new ValidacaoException("Medico já possui agendamento nesse horario");
         }
