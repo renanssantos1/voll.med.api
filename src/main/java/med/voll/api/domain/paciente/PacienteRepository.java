@@ -8,4 +8,6 @@ import java.util.Optional;
 
 public interface PacienteRepository extends JpaRepository<Paciente, Long> {
     Page<Paciente> findAllByAtivoTrue(Pageable pagination);
+
+    boolean findByAtivoById(Long idPaciente);
 }
