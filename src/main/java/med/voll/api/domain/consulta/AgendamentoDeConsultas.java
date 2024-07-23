@@ -42,7 +42,6 @@ public class AgendamentoDeConsultas {
         Medico medico = escolherMedico(dadosAgendamento);
 
         Consulta consulta = new Consulta(null, medico, paciente, dadosAgendamento.data());
-
         return new DadosDetalhamentoConsulta(consulta);
     }
 
