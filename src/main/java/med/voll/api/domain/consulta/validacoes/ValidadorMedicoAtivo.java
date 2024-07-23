@@ -15,11 +15,12 @@ public class ValidadorMedicoAtivo implements ValidadorAgendamentoConsulta {
     private MedicoRepository repository;
 
     public void validar(DadosAgendamentoConsulta dados) {
+        System.out.println("ID MEDICO" + dados.idMedico());
         if (Objects.isNull(dados.idMedico())) {
             return;
         }
-        var medicoAtivo = repository.findAtivoById(dados.idMedico());
-        if (!medicoAtivo) {
+        var medicoAtivo = repository.findByAtivoById(dados.idMedico());
+        if (medicoAtivo == null) {
             throw new ValidacaoException("Consulta nao pode ser agendada com medico inexistente");
         }
     }
