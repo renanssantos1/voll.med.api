@@ -9,17 +9,17 @@ import org.springframework.stereotype.Component;
 import java.util.Objects;
 
 @Component
-public class ValidadorMedicoAtivo implements ValidadorAgendamentoConsulta{
+public class ValidadorMedicoAtivo implements ValidadorAgendamentoConsulta {
 
     @Autowired
     private MedicoRepository repository;
 
-    public void validar(DadosAgendamentoConsulta dados){
-        if(Objects.isNull(dados.idMedico())){
+    public void validar(DadosAgendamentoConsulta dados) {
+        if (Objects.isNull(dados.idMedico())) {
             return;
         }
-        boolean medicoAtivo = repository.findAtivoById(dados.idMedico());
-        if (!medicoAtivo){
+        var medicoAtivo = repository.findAtivoById(dados.idMedico());
+        if (!medicoAtivo) {
             throw new ValidacaoException("Consulta nao pode ser agendada com medico inexistente");
         }
     }
