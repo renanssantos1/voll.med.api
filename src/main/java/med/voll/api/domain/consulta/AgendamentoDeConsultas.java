@@ -39,9 +39,12 @@ public class AgendamentoDeConsultas {
         validators.forEach(v -> v.validar(dadosAgendamento));
 
         Paciente paciente = pacienteRepository.getReferenceById(dadosAgendamento.idPaciente());
-        Medico medico = escolherMedico(dadosAgendamento);
 
+        Medico medico = escolherMedico(dadosAgendamento);
         Consulta consulta = new Consulta(null, medico, paciente, dadosAgendamento.data());
+
+        consultaRepository.save(consulta);
+
         return new DadosDetalhamentoConsulta(consulta);
     }
 
