@@ -29,11 +29,11 @@ public class AgendamentoDeConsultas {
 
     public void agendarConsulta(DadosAgendamentoConsulta dadosAgendamento) {
         if (!pacienteRepository.existsById(dadosAgendamento.idPaciente())) {
-            throw new ValidacaoException("Id do paciente: " + dadosAgendamento.idPaciente() + "nao existe;");
+            throw new ValidacaoException("Id do paciente: " + dadosAgendamento.idPaciente() + " nao existe;");
         }
 
         if (Objects.isNull(dadosAgendamento.idMedico()) && !medicoRepository.existsById(dadosAgendamento.idMedico())) {
-            throw new ValidacaoException("Id do medico: " + dadosAgendamento.idPaciente() + "nao existe;");
+            throw new ValidacaoException("Id do medico: " + dadosAgendamento.idPaciente() + " nao existe;");
         }
 
         validators.forEach(v -> v.validar(dadosAgendamento));
