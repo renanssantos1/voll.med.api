@@ -15,7 +15,6 @@ public class ValidadorMedicoAtivo implements ValidadorAgendamentoConsulta {
     private MedicoRepository repository;
 
     public void validar(DadosAgendamentoConsulta dados) {
-        System.out.println("ID MEDICO" + dados.idMedico());
         if (Objects.isNull(dados.idMedico())) {
             return;
         }
